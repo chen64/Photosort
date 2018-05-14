@@ -6,7 +6,6 @@ router.route('/')
     .get(UsersController.getAllUsers)
     .post(UsersController.newUser);
     
-// /users/:id
 router.route('/:userId')
     .get(UsersController.getUser)
     .put(UsersController.replaceUser)
@@ -15,9 +14,5 @@ router.route('/:userId')
 router.route('/:userId/albums')
     .get(UsersController.getUserAlbums)
     .post(UsersController.newUserAlbum);
-
-
-
-
 
 module.exports = router;

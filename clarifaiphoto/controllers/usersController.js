@@ -68,14 +68,14 @@ module.exports = {
 
     newUserAlbum: async (req, res, next) => {
         const { userId } = req.params;
-        console.log("req.body:: ", req.body);
+        // console.log("req.body:: ", req.body);
 
         const newAlbum = new AlbumModel(req.body);
 
         const user = await UserModel.findById(userId);
-        console.log("User found: ", user);
+        // console.log("User found: ", user);
         newAlbum.owner = user._id;
-        console.log("NewAblum: ", newAlbum);
+        // console.log("NewAblum: ", newAlbum);
 
         await newAlbum.save();
         user.albums.push(newAlbum);

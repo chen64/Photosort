@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const usersRoute = require("./routes/usersRoute");
 
+const Clarifai = require('clarifai');
+
 const app = express();
 
 //Database

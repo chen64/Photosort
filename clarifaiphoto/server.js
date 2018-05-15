@@ -48,10 +48,6 @@ app.use((err, req, res, next) => {
   console.error(err);
 });
 
-let img = "https://samples.clarifai.com/metro-north.jpg";
-clarifaiUtil.clarifaiImg(img);
-
-
 // Start the server
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, function() {

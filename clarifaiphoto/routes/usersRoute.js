@@ -15,4 +15,9 @@ router.route('/:userId/albums')
     .get(UsersController.getUserAlbums)
     .post(UsersController.newUserAlbum);
 
+    //routes for testing
+    router.route('/test')
+    .get(UsersController.test)
+    .post(UsersController.test2);
+
 module.exports = router;

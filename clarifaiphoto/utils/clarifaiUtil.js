@@ -10,6 +10,7 @@ module.exports = {
         console.log("singleImgFunction " + imgUrl);
 
         let tags = [];
+        
 
         app.models.predict(Clarifai.GENERAL_MODEL, imgUrl).then(
             function (response) {

@@ -1,5 +1,7 @@
 const UserModel = require('../models/userModel');
 const AlbumModel = require('../models/albumModel');
+const ImageModel = require('../models/imageModel');
+
 
 module.exports = {
     getAllUsers: async (req, res, next) => {
@@ -85,6 +87,32 @@ module.exports = {
         console.log(user);
         console.log("=====================================================");
         res.status(201).json(newAlbum);
+    },
+
+    newImage: async (req, res, next) => {
+        const newImage = new ImageModel(req.body);
+        const image = await newImage.save();
+        // console.log("\n");
+        // console.log("=====/newUser==userObject/===========================");
+        // console.log(user);
+        // console.log("=====================================================");
+        res.status(200).json(image);
+    },
+
+
+
+
+
+
+
+    //route for testing
+    test: async (req, res, next) => {
+
+    },
+
+    //route for testing
+    test2: async (req, res, next) => {
+
     }
 
 };

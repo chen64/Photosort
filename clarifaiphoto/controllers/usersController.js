@@ -1,6 +1,5 @@
 const UserModel = require('../models/userModel');
 const AlbumModel = require('../models/albumModel');
-const ClarifaiController = require('./clarifaiController');
 
 module.exports = {
     getAllUsers: async (req, res, next) => {

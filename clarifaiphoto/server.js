@@ -3,8 +3,8 @@ const logger =  require('morgan');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const usersRoute = require("./routes/usersRoute");
-
 const Clarifai = require('clarifai');
+const clarifaiUtil = require('./utils/clarifaiUtil');
 
 const app = express();
 
@@ -48,9 +48,14 @@ app.use((err, req, res, next) => {
   console.error(err);
 });
 
+let img = "https://samples.clarifai.com/metro-north.jpg";
+clarifaiUtil.clarifaiImg(img);
+
+
 // Start the server
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
-  console.log('==> WTF, this server really started?')
+  console.log('=====> WTF, this server really started?')
 });
+

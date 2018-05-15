@@ -6,13 +6,13 @@ import "./App.css";
 const App = () => {
   <Router>
     <div> 
-      <Navbar />
+      {/* <Navbar />
         <Wrapper>
           <Route />
           <Route />
           <Route />
           
-        </Wrapper>
+        </Wrapper> */}
     </div>
   </Router>
 }

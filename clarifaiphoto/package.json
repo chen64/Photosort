@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
+    "clarifai": "^2.7.1",
     "express": "^4.16.3",
     "express-promise-router": "^3.0.2",
     "mongoose": "^5.1.0",

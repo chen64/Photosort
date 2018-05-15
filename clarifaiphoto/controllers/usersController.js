@@ -1,6 +1,7 @@
 const UserModel = require('../models/userModel');
 const AlbumModel = require('../models/albumModel');
-const ClarifaiController = require('./clarifaiController');
+const ImageModel = require('../models/imageModel');
+
 
 module.exports = {
     getAllUsers: async (req, res, next) => {
@@ -68,14 +69,14 @@ module.exports = {
 
     newUserAlbum: async (req, res, next) => {
         const { userId } = req.params;
-        console.log("req.body:: ", req.body);
+        // console.log("req.body:: ", req.body);
 
         const newAlbum = new AlbumModel(req.body);
 
         const user = await UserModel.findById(userId);
-        console.log("User found: ", user);
+        // console.log("User found: ", user);
         newAlbum.owner = user._id;
-        console.log("NewAblum: ", newAlbum);
+        // console.log("NewAblum: ", newAlbum);
 
         await newAlbum.save();
         user.albums.push(newAlbum);
@@ -86,6 +87,32 @@ module.exports = {
         console.log(user);
         console.log("=====================================================");
         res.status(201).json(newAlbum);
+    },
+
+    newImage: async (req, res, next) => {
+        const newImage = new ImageModel(req.body);
+        const image = await newImage.save();
+        // console.log("\n");
+        // console.log("=====/newUser==userObject/===========================");
+        // console.log(user);
+        // console.log("=====================================================");
+        res.status(200).json(image);
+    },
+
+
+
+
+
+
+
+    //route for testing
+    test: async (req, res, next) => {
+
+    },
+
+    //route for testing
+    test2: async (req, res, next) => {
+
     }
 
 };

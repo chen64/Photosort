@@ -8,7 +8,7 @@ import "./App.css";
 const App = () => (
   <Router>
     <div> 
-      <Navbar />
+     <Navbar />
         <Wrapper>
           <Route exact path="/" component={Home}/>
         </Wrapper>

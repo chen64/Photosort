@@ -2,6 +2,8 @@ const UserModel = require('../models/userModel');
 const AlbumModel = require('../models/albumModel');
 const ImageModel = require('../models/imageModel');
 const TagModel = require('../models/tagModel');
+const clarifaiUtil = require('../clarifai/clarifaiUtil');
+
 
 module.exports = {
     getAllUsers: async (req, res, next) => {
@@ -14,12 +16,19 @@ module.exports = {
     },
 
     newUser: async (req, res, next) => {
-        const newUser = new UserModel(req.body);
-        const user = await newUser.save();
+        console.log("=====/newUser=============================");
+        console.log("=====/newUser=============================");
+
+        let user = await clarifaiUtil.createSimpleUser("JSONify", "JSONifyFlickrId", "JSONifyAlbum");
+
+        // const newUser = new UserModel(req.body);
+        // const user = await newUser.save();
+
+
         // console.log("\n");
-        // console.log("=====/newUser==userObject/===========================");
-        // console.log(user);
-        // console.log("=====================================================");
+        console.log("=====/newUser==userObject/===========================");
+        console.log(user);
+        console.log("=====================================================");
         res.status(200).json(user);
     },
 
@@ -111,14 +120,15 @@ module.exports = {
 
  
     postImage: async (req, res, next) => {
-        console.log(req.body);
-        const newImage = new ImageModel(req.body);
-        const image = await newImage.save();
+        // console.log(req.body);
+        // const newImage = new ImageModel(req.body);
+        // const image = await newImage.save();
+        const image = await clarifaiUtil.clarifaiImg("JSONify", "https://samples.clarifai.com/metro-north.jpg");
         console.log("\n");
         console.log("=====/postImage==userObject/=========================");
         console.log(image);
         console.log("=====================================================");
-        res.status(200).json(image);
+        res.json(image);
     },
 
     getEverything: async (req, res, next) => {

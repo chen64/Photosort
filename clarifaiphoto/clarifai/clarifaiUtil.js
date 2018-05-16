@@ -19,6 +19,7 @@ module.exports = {
         const newUser = new SimpleUserModel(userObject);
         const user = await newUser.save();
         console.log(user);
+        return user;
     },
 
     clarifaiImg: async function (username, imgUrl) {
@@ -65,47 +66,12 @@ module.exports = {
                     user.save();
 
                 })
+                console.log("CONSOLING LOGGING IN CLARIFAI UTIL(((((");
+                console.log(newSimpleImage);
+                console.log("------------------------------------------");
+
                 
-                // await newAlbum.save();
-                // user.albums.push(newAlbum);
-                // await user.save();
-                // user.populate('albums');
-                // console.log("\n");
-                // console.log("=====/newUserAlbum==userObject/======================");
-                // console.log(user);
-                // console.log("=====================================================");
-                // res.status(201).json(newAlbum);
-
-
-
-
-
-                // console.log("-------------");
-                // console.log("-------------");
-                // console.log("username is : " + username);
-                // console.log(user);
-                // console.log("-------------");
-                
-                //CREATE NEW SIMPLEIMAGEMODEL
-            
-
-
-                //ASSIGN THE OWNER ID of simpleIMAGEMODEL to that of the user
-
-
-                //save .save 
-
-
-                //  const user = SimpleUserModel.find({userName: username});
-
-                // console.log("USERNAME?????   " + user._id);
-
-
-                // let owner = huh;
-                // let imgObject = {imgName: imgUrl, tags: tagProbabilities, owner: ownerId};
-
-                // const newImage = new ImageModel();
-
+                return newSimpleImage;
             },
 
             function (err) {

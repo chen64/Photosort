@@ -5,16 +5,16 @@ const albumSchema = new Schema({
     albumId: String,
     images: [{
         type: Schema.Types.ObjectId,
-        ref: 'image'
+        ref: 'Image'
     }],
     owner: {
         type: Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'User'
     }
 });
 
-const Albums = mongoose.model('album', albumSchema);
-module.exports = Albums;
+const AlbumsModel = mongoose.model('Album', albumSchema);
+module.exports = AlbumsModel;
 
 
 

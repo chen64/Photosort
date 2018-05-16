@@ -8,9 +8,9 @@ const imageSchema = new Schema({
     }],
     owner: {
         type: Schema.Types.ObjectId,
-        ref: 'album'
+        ref: 'Album'
     }
 });
 
-const Images = mongoose.model('image', imageSchema);
-module.exports = Images;
+const ImagesModel = mongoose.model('Image', imageSchema);
+module.exports = ImagesModel;

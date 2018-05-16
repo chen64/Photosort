@@ -7,7 +7,6 @@ const Navbar = props => (
         <Link className="navbar-brand" to="/">
             Clarif
         </Link>
-        <div>
         <ul className="navbar-nav">
             <li
             className={
@@ -22,10 +21,9 @@ const Navbar = props => (
             </li>
         </ul>
         <ul className="navbar-nav pull-right">
-            <li className="">Login</li>
-            <li className="">Logout</li>
+            <li className="login">Login</li>
+            <li className="logout">Logout</li>
         </ul>
-        </div>
     </nav>
 );
 

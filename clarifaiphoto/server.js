@@ -50,9 +50,11 @@ app.use((err, req, res, next) => {
 
 
 
-
-clarifaiUtil.createSimpleUser("JSONify", "JSONifyFlickrId", "JSONifyAlbum");
-clarifaiUtil.clarifaiImg("JSONify", "https://samples.clarifai.com/metro-north.jpg");
+//
+//clarifaiUtil.createSimpleUser("JSONify", "JSONifyFlickrId", "JSONifyAlbum");
+//clarifaiUtil.clarifaiImg("JSONify", "https://samples.clarifai.com/metro-north.jpg");
+//clarifaiUtil.clarifaiImg("JSONify", "https://samples.clarifai.com/metro-north.jpg");
+//clarifaiUtil.clarifaiImg("JSONify", "https://samples.clarifai.com/metro-north.jpg");
 
 
 

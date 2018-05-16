@@ -54,12 +54,40 @@ module.exports = {
 
                 //GET USER ID OF the username
                 
-                // const user = await SimpleUserModel.find({userName: username});
-                console.log("-------------");
-                console.log(user);
+                    SimpleUserModel.findOne({userName: username}).then( (data) =>{
+                    console.log(data);
+                    user=data;
+                    console.log(user._id);
+                    const newSimpleImage = new SimpleImageModel({imgName: imgUrl, tags: tagProbabilities, owner: user._id});
+                    newSimpleImage.owner = user._id;
+                    newSimpleImage.save();
+                    user.images.push(newSimpleImage);
+                    user.save();
 
+                })
+                
+                // await newAlbum.save();
+                // user.albums.push(newAlbum);
+                // await user.save();
+                // user.populate('albums');
+                // console.log("\n");
+                // console.log("=====/newUserAlbum==userObject/======================");
+                // console.log(user);
+                // console.log("=====================================================");
+                // res.status(201).json(newAlbum);
+
+
+
+
+
+                // console.log("-------------");
+                // console.log("-------------");
+                // console.log("username is : " + username);
+                // console.log(user);
+                // console.log("-------------");
+                
                 //CREATE NEW SIMPLEIMAGEMODEL
-
+            
 
 
                 //ASSIGN THE OWNER ID of simpleIMAGEMODEL to that of the user
@@ -68,13 +96,8 @@ module.exports = {
                 //save .save 
 
 
+                //  const user = SimpleUserModel.find({userName: username});
 
-
-
-
-
-
-                // const user = await SimpleUserModel.find({userName: username});
                 // console.log("USERNAME?????   " + user._id);
 
 

@@ -3,8 +3,7 @@ const logger =  require('morgan');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const usersRoute = require("./routes/usersRoute");
-const Clarifai = require('clarifai');
-const clarifaiUtil = require('./utils/clarifaiUtil');
+const clarifaiUtil = require('./clarifai/clarifaiUtil');
 
 const app = express();
 
@@ -21,6 +20,7 @@ app.use(bodyParser.json());
 
 //Routes
 app.use('/users', usersRoute);
+
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -47,6 +47,15 @@ app.use((err, req, res, next) => {
   //respond to terminal
   console.error(err);
 });
+
+
+
+
+clarifaiUtil.createSimpleUser("JSONify", "JSONifyFlickrId", "JSONifyAlbum");
+clarifaiUtil.clarifaiImg("JSONify", "https://samples.clarifai.com/metro-north.jpg");
+
+
+
 
 // Start the server
 const PORT = process.env.PORT || 3001;

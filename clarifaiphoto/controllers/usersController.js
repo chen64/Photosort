@@ -1,7 +1,7 @@
 const UserModel = require('../models/userModel');
 const AlbumModel = require('../models/albumModel');
 const ImageModel = require('../models/imageModel');
-
+const TagModel = require('../models/tagModel');
 
 module.exports = {
     getAllUsers: async (req, res, next) => {
@@ -99,19 +99,29 @@ module.exports = {
         res.status(200).json(image);
     },
 
-
-
-
-
-
-
-    //route for testing
-    test: async (req, res, next) => {
-
+    getImages: async (req, res, next) => {
+        console.log("GETTING IMAGES");
+        // const images = await ImageModel.find({});
+        // console.log("\n");
+        // console.log("=====/getImages==userObject/=========================");
+        // console.log(users);
+        // console.log("=====================================================");
+        // res.status(200).json(images);
     },
 
-    //route for testing
-    test2: async (req, res, next) => {
+ 
+    postImage: async (req, res, next) => {
+        console.log(req.body);
+        const newImage = new ImageModel(req.body);
+        const image = await newImage.save();
+        console.log("\n");
+        console.log("=====/postImage==userObject/=========================");
+        console.log(image);
+        console.log("=====================================================");
+        res.status(200).json(image);
+    },
+
+    getEverything: async (req, res, next) => {
 
     }
 

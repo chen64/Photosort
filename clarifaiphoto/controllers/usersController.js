@@ -117,34 +117,50 @@ module.exports = {
         // console.log("=====/getImages==userObject/=========================");
         // console.log(users);
         // console.log("=====================================================");
-        // res.status(200).json(images);
+        
+      
+         const user = await SimpleUserModel.find({userName:"JSONify"})
+         .populate('images');
+        console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+        console.log(user);
+
+
+
+        
+        res.status(200).json(user);
     },
 
  
     postImage: async (req, res, next) => {
-        // console.log(req.body);
-        // const newImage = new ImageModel(req.body);
-        // const image = await newImage.save();
+        console.log("POST IMAGE*******************************************");
+        console.log(req.body);
 
-        //const newImage = new SimpleImageModel(req.body);
-        //const image = await newImage.save();
-
-        console.log("=====================================================");
-        console.log("imgOwnerUserName%%%% " + req.body.imgOwner);
-        console.log("imgUrl " + req.body.imgUrl);
-        console.log("=====================================================");
+        // console.log("=====================================================");
+        // console.log("imgOwnerUserName%%%% " + req.body.imgOwner);
+        // console.log("imgUrl " + req.body.imgUrl);
+        // console.log("=====================================================");
 
         //const image = await clarifaiUtil.clarifaiImg(req.body.imgOwnerUserName, req.body.imgUrl);
-        const image = await clarifaiUtil.clarifaiImg(req.body.imgOwner, req.body.imgUrl);
-        // console.log("\n");
-        // console.log("=====/postImage==userObject/=========================");
-        // console.log(image);
-        // console.log("=====================================================");
+
+        const image = await clarifaiUtil.clarifaiImg("JSONify", "https://samples.clarifai.com/metro-north.jpg");
+
+
+
+
+
+
         res.json(image);
-    },
-
-    getEverything: async (req, res, next) => {
-
     }
+
+    // getEverything: async (req, res, next) => {
+    //     console.log("GET EVERYTHING*******************************************");
+    //     console.log(req.body);
+    // },
+
+    // deleteEverything: async (req, res, next) => {
+    //     console.log("POST EVERYTHING*******************************************");
+    //     console.log(req.body);
+    //}
+
 
 };

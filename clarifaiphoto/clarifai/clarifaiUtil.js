@@ -38,10 +38,10 @@ module.exports = {
                     tagsProb.push(s.value);
                 }
 
-                console.log("RETURN OBJECT----------------------------------------------");
-                console.log(tags);
-                console.log("END OF RETURN OBJECT---------------------------------------");
-                console.log(tagsProb);
+                // console.log("RETURN OBJECT----------------------------------------------");
+                // console.log(tags);
+                // console.log("END OF RETURN OBJECT---------------------------------------");
+                // console.log(tagsProb);
 
 
                 const tagProbabilities = [];
@@ -59,7 +59,7 @@ module.exports = {
                     console.log(data);
                     user=data;
                     console.log(user._id);
-                    const newSimpleImage = new SimpleImageModel({imgName: imgUrl, tags: tagProbabilities, owner: user._id});
+                    const newSimpleImage = new SimpleImageModel({imgUrl: imgUrl, tags: tagProbabilities, owner: user._id});
                     newSimpleImage.owner = user._id;
                     newSimpleImage.save();
                     user.images.push(newSimpleImage);
@@ -70,7 +70,7 @@ module.exports = {
                 console.log(newSimpleImage);
                 console.log("------------------------------------------");
 
-                
+
                 return newSimpleImage;
             },
 

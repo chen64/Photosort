@@ -2,6 +2,8 @@ const UserModel = require('../models/userModel');
 const AlbumModel = require('../models/albumModel');
 const ImageModel = require('../models/imageModel');
 const TagModel = require('../models/tagModel');
+const SimpleUserModel = require('../models/simpleUserModel');
+const SimpleImageModel = require('../models/simpleImageModel');
 const clarifaiUtil = require('../clarifai/clarifaiUtil');
 
 
@@ -123,11 +125,21 @@ module.exports = {
         // console.log(req.body);
         // const newImage = new ImageModel(req.body);
         // const image = await newImage.save();
-        const image = await clarifaiUtil.clarifaiImg("JSONify", "https://samples.clarifai.com/metro-north.jpg");
-        console.log("\n");
-        console.log("=====/postImage==userObject/=========================");
-        console.log(image);
+
+        //const newImage = new SimpleImageModel(req.body);
+        //const image = await newImage.save();
+
         console.log("=====================================================");
+        console.log("imgOwnerUserName%%%% " + req.body.imgOwner);
+        console.log("imgUrl " + req.body.imgUrl);
+        console.log("=====================================================");
+
+        //const image = await clarifaiUtil.clarifaiImg(req.body.imgOwnerUserName, req.body.imgUrl);
+        const image = await clarifaiUtil.clarifaiImg(req.body.imgOwner, req.body.imgUrl);
+        // console.log("\n");
+        // console.log("=====/postImage==userObject/=========================");
+        // console.log(image);
+        // console.log("=====================================================");
         res.json(image);
     },
 

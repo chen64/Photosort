@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //Routes
-app.use('/users', usersRoute);
+app.use('/', usersRoute);
 
 
 // Serve up static assets (usually on heroku)
@@ -47,17 +47,6 @@ app.use((err, req, res, next) => {
   //respond to terminal
   console.error(err);
 });
-
-
-
-//
-//clarifaiUtil.createSimpleUser("JSONify", "JSONifyFlickrId", "JSONifyAlbum");
-//clarifaiUtil.clarifaiImg("JSONify", "https://samples.clarifai.com/metro-north.jpg");
-//clarifaiUtil.clarifaiImg("JSONify", "https://samples.clarifai.com/metro-north.jpg");
-//clarifaiUtil.clarifaiImg("JSONify", "https://samples.clarifai.com/metro-north.jpg");
-
-
-
 
 // Start the server
 const PORT = process.env.PORT || 3001;

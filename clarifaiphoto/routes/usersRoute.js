@@ -2,24 +2,24 @@ const express = require('express');
 const router = require('express-promise-router')();
 const UsersController = require('../controllers/usersController');
 
-router.route('/')
+router.route('/users')
     .get(UsersController.getAllUsers)
     .post(UsersController.newUser);
 
-router.route('/:userId')
+router.route('/users/:userId')
     .get(UsersController.getUser)
     .put(UsersController.replaceUser)
     .patch(UsersController.updateUser);
 
-router.route('/:userId/albums')
+router.route('/users/:userId/albums')
     .get(UsersController.getUserAlbums)
     .post(UsersController.newUserAlbum);
 
-router.route('/images')
+router.route('/users/images')
     .get(UsersController.getImages)
     .post(UsersController.postImage);
 
-router.route('/everything')
+router.route('/users/everything')
     .get(UsersController.getEverything)
 
 

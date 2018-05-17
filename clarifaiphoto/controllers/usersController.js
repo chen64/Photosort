@@ -53,7 +53,7 @@ module.exports = {
         // console.log("=====/replaceUser==userObject/=======================");
         // console.log(result);
         // console.log("=====================================================");
-        res.status(200).json({ success: true});
+        res.status(200).json({ success: true });
     },
 
     updateUser: async (req, res, next) => {
@@ -65,7 +65,7 @@ module.exports = {
         // console.log("=====/updateUser==userObject/========================");
         // console.log(result);
         // console.log("=====================================================");
-        res.status(200).json({ success: true});  
+        res.status(200).json({ success: true });
     },
 
     getUserAlbums: async (req, res, next) => {
@@ -110,6 +110,9 @@ module.exports = {
         res.status(200).json(image);
     },
 
+
+
+
     getImages: async (req, res, next) => {
         console.log("GETTING IMAGES");
         // const images = await ImageModel.find({});
@@ -117,20 +120,20 @@ module.exports = {
         // console.log("=====/getImages==userObject/=========================");
         // console.log(users);
         // console.log("=====================================================");
-        
-      
-         const user = await SimpleUserModel.find({userName:"JSONify"})
-         .populate('images');
+
+
+        const user = await SimpleUserModel.find({ userName: "JSONify" })
+            .populate('images');
         console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
         console.log(user);
 
 
 
-        
+
         res.status(200).json(user);
     },
 
- 
+
     postImage: async (req, res, next) => {
         console.log("POST IMAGE*******************************************");
         console.log(req.body);
@@ -146,10 +149,17 @@ module.exports = {
 
 
 
-
-
-
         res.json(image);
+    },
+
+    postImageArray: async (req, res, next) => {
+        console.log("POST IMAGE ARRAY=============================");
+        console.log(req.body);
+        const arrayOfImages = req.body;
+        res.json(arrayOfImages);
+    },
+
+    dummy: async (req, res, next) => {
     }
 
     // getEverything: async (req, res, next) => {

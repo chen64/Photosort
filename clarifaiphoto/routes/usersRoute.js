@@ -20,9 +20,9 @@ router.route('/users/images')
     .get(UsersController.getImages)
     .post(UsersController.postImage);
 
-    // router.route('/users/imagesArray')
-    // .get(UsersController.dummy)
-    // .post(UsersController.postImageArray);
+router.route('/users/imagesArray')
+    .get(UsersController.dummy)
+    .post(UsersController.postImageArray);
 
 
 module.exports = router;

@@ -4,8 +4,18 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const usersRoute = require("./routes/usersRoute");
 const clarifaiUtil = require('./clarifai/clarifaiUtil');
+const cookieSession = require("cookie-session")
+const passport = require("passport");
+const session = require("express-session")
+const keys = require("./config/keys")
+const authRoute = require("./routes/authRoute")
+const passportSetup = require("./config/passport")
 
 const app = express();
+app.use(cookieSession({
+  maxAge:24*60*60*1000,
+  keys: [keys.session.cookieKey]
+}))
 
 //Database
 mongoose.Promise = global.Promise;
@@ -13,12 +23,16 @@ mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/clarifaiproject"
 );
 
+app.use(passport.initialize())
+app.use(passport.session());
+
 //Middlewares
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //Routes
+app.use("/auth", authRoute)
 app.use('/', usersRoute);
 
 

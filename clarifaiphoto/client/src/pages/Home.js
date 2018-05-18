@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 
 const Home = () => (
     <div>
-        <Hero backgroundImage="https://i.imgur.com/qkdpN.jpg">
+        <Hero backgroundImage="https://i.imgur.com/pk7ncxw.jpg">
         <h1>SOMETHING</h1>
         </Hero>
         <div className="container">

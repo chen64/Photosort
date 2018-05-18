@@ -21,7 +21,13 @@ const Navbar = props => (
             </li>
         </ul>
         <ul className="navbar-nav pull-right">
-            <li className="login">Login</li>
+        <li className={window.location.pathname==="/auth/flickr"
+               ? "nav-item active"
+               : "nav-item"}>
+           <a href="http://localhost:3001/auth/flickr" className="nav-link" >
+               Login
+           </a>    
+           </li>
             <li className="logout">Logout</li>
         </ul>
     </nav>

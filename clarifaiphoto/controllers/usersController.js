@@ -143,9 +143,9 @@ module.exports = {
         // console.log("imgUrl " + req.body.imgUrl);
         // console.log("=====================================================");
 
-        //const image = await clarifaiUtil.clarifaiImg(req.body.imgOwnerUserName, req.body.imgUrl);
+        const image = await clarifaiUtil.clarifaiImg("JSONify", req.body.imgUrl);
 
-        const image = await clarifaiUtil.clarifaiImg("JSONify", "https://samples.clarifai.com/metro-north.jpg");
+        //const image = await clarifaiUtil.clarifaiImg("JSONify", "https://samples.clarifai.com/metro-north.jpg");
 
 
 
